@@ -39,9 +39,14 @@ $sender = Internetmarke::createAddress()
     ->streetAndHousenr('Musterstrasse 1')
     ->zipcodeAndCity('12345 Musterstadt')
     ->country('DEU'); // ISO-3166-1 Alpha-3 code
+    
+ $position = Internetmarke::createPosition()
+    ->x(1)
+    ->y(1)
+    ->page(1);
 
 $full_path_to_png = Internetmarke::login('email', 'password')
-    ->checkoutPDF(null, 1, 80, 'AddressZone', $receiver, $sender)
+    ->checkoutPDF(null, 1, 85, 'AddressZone', 29, $position, $receiver, $sender)
     ->savePDF();
 ```
 
