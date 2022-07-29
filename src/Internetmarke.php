@@ -75,7 +75,7 @@ class Internetmarke extends \SoapClient
         return parent::__doRequest($request, $location, $action, $version);
     }
 
-    public function login($username, $password, $ignore_terms = false)
+    public function login($username, $password, $ignore_terms = true)
     {
         $hashed_key = hash('sha256', $username.':'.$password);
         $cache_key = 'internetmarke_user_'.$hashed_key;
